@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "conversortemperatura.h": "c",
+        "stdio.h": "c"
+    }
+}

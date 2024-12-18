@@ -3,22 +3,26 @@
 
 int main(void)
 {
-    printf("Bem vindo ao sistema de conversões!\n");
+    int tipoConversao;
+    
+    printf("Bem-vindo ao sistema de conversões!\n");
     printf("Escolha o tipo de conversão:\n");
-    printf("1. Celsius para Fahrenheit\n");
-    printf("2. Fahrenheit para Celsius\n");
+    printf("1. Conversor de temperatura\n");
+    printf("2. Outro conversor (a ser implementado)\n");
     printf("Digite o número do tipo de conversão: ");
     
-    int tipo;
-    scanf("%d", &tipo);
+    scanf("%d", &tipoConversao);
     
-    switch (tipo)
+    switch (tipoConversao)
     {
     case 1:
-        conversorTemperatura(tipo); 
+        conversorTemperatura();
+        break;
+    case 2:
+        printf("Outro conversor será implementado em breve!\n");
         break;
     default:
-        printf("Opção inválida\n");
+        printf("Opção inválida!\n");
         break;
     }
 
