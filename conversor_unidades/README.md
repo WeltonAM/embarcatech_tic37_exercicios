@@ -1,8 +1,8 @@
-### Conversor de unidades
+# Conversor de unidades
 
 Este programa é um conversor de unidades para prática de programação em C.
 
-### Uso do programa
+## Uso do programa
 
 Para usar o programa, basta digitar os comandos no terminal: 
 
