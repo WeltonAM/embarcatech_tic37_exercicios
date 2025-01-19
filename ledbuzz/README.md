@@ -44,9 +44,3 @@ Assista ao vídeo explicativo do projeto e veja os resultados obtidos:
    - [PlatformIO](https://platformio.org/)
 4. **SDK Pico** instalado e configurado.
 5. **PuTTY** ou outro terminal para comunicação UART.
-
-### Configuração
-1. Clone o repositório para sua máquina:
-   ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
