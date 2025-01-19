@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = "build/led_buzzer.hex"
+elf = "build/led_buzzer.elf"
