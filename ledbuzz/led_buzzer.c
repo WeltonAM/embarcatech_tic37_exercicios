@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include <string.h>
+#include "pico/bootrom.h"
 
 #define LED_G 11
 #define LED_B 12
@@ -55,6 +56,7 @@ void process_command(char *command, bool *should_exit) {
     printf("BUZZER\n");
   } else if (strcmp(command, "reboot") == 0) {
     printf("Exiting execution mode...\n");
+    reset_usb_boot(0, 0);
     *should_exit = true;
   } else {
     printf("Invalid command\n");

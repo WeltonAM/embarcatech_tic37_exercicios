@@ -20,17 +20,17 @@ Este projeto implementa o controle de LEDs RGB e um buzzer usando a placa educac
 
 ## 🔗 Teste Online
 
-Você pode testar o circuito diretamente no simulador Wokwi clicando no link abaixo:
+Você pode testar o circuito diretamente no simulador Wokwi clicando no botão abaixo:
 
-[![Teste no Wokwi](https://wokwi.com/projects/420104833635443713)]
+[![Teste no Wokwi](https://img.shields.io/badge/Simular%20no%20Wokwi-Testar%20Online-brightgreen)](https://wokwi.com/projects/420104833635443713)
 
 ---
 
-## 🔗 Vídeo Demonstrativo
+## 🎥 Vídeo Demonstrativo
 
-Vídeo demonstrativo do projeto:
+Assista ao vídeo explicativo do projeto e veja os resultados obtidos:
 
-[![Vídeo demonstrativo]()] 
+[![Vídeo Demonstrativo](https://img.shields.io/badge/Assistir-Vídeo-blue)](https://www.dropbox.com/scl/fi/jevku9wjif9zy1iechuxd/VID-20250109-WA0044.mp4?rlkey=4cb9qag7ziis20u8ivjgtvmdk&dl=0)
 
 ---
 
@@ -40,8 +40,13 @@ Vídeo demonstrativo do projeto:
 1. **Placa BitDogLab (versão 6.3)**.
 2. **Cabo micro-USB para USB-A**.
 3. **Visual Studio Code** com as extensões:
-   - [C/C++]
-   - [Wokwi Simulator]
-   - [Raspberry Pi Pico]
+   - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+   - [PlatformIO](https://platformio.org/)
 4. **SDK Pico** instalado e configurado.
 5. **PuTTY** ou outro terminal para comunicação UART.
+
+### Configuração
+1. Clone o repositório para sua máquina:
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
