@@ -101,18 +101,18 @@ const uint button_0 = 5;
 const uint button_1 = 6;
 
 // vetor para criar imagem na matriz de led - 1
-double desenho[25] = {0.0, 0.3, 0.3, 0.3, 0.0,
-                      0.0, 0.3, 0.0, 0.3, 0.0,
-                      0.0, 0.3, 0.3, 0.3, 0.0,
-                      0.0, 0.3, 0.0, 0.3, 0.0,
-                      0.0, 0.3, 0.3, 0.3, 0.0};
+double desenho[25] = {0.0, 0.0, 0.0, 0.0, 0.0,
+                      0.0, 0.0, 0.0, 0.0, 0.0,
+                      0.0, 0.0, 0.0, 0.0, 0.0,
+                      0.0, 0.0, 0.0, 0.0, 0.0,
+                      0.0, 0.0, 0.0, 0.0, 0.0};
 
 // vetor para criar imagem na matriz de led - 2
-double desenho2[25] = {1.0, 0.0, 0.0, 0.0, 1.0,
-                       0.0, 1.0, 0.0, 1.0, 0.0,
-                       0.0, 0.0, 1.0, 0.0, 0.0,
-                       0.0, 1.0, 0.0, 1.0, 0.0,
-                       1.0, 0.0, 0.0, 0.0, 1.0};
+double desenho2[25] = {1.0, 1.0, 1.0, 1.0, 1.0,
+                       1.0, 1.0, 1.0, 1.0, 1.0,
+                       1.0, 1.0, 1.0, 1.0, 1.0,
+                       1.0, 1.0, 1.0, 1.0, 1.0,
+                       1.0, 1.0, 1.0, 1.0, 1.0};
 
 // imprimir valor binário
 void imprimir_binario(int num)
@@ -148,16 +148,8 @@ void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r
 
   for (int16_t i = 0; i < NUM_PIXELS; i++)
   {
-    if (i % 2 == 0)
-    {
-      valor_led = matrix_rgb(desenho[24 - i], r = 0.0, g = 0.0);
-      pio_sm_put_blocking(pio, sm, valor_led);
-    }
-    else
-    {
-      valor_led = matrix_rgb(b = 0.0, desenho[24 - i], g = 0.0);
-      pio_sm_put_blocking(pio, sm, valor_led);
-    }
+    valor_led = matrix_rgb(desenho[24 - i], r = 0.0, g = 0.0);
+    pio_sm_put_blocking(pio, sm, valor_led);
   }
   imprimir_binario(valor_led);
 }
