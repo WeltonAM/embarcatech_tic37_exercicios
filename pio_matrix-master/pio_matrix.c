@@ -89,9 +89,6 @@ char ler_tecla()
 
 #define OUT_PIN 7
 
-const uint button_0 = 5;
-const uint button_1 = 6;
-
 double leds[25] = {1.0, 1.0, 1.0, 1.0, 1.0,
                    1.0, 1.0, 1.0, 1.0, 1.0,
                    1.0, 1.0, 1.0, 1.0, 1.0,
@@ -154,17 +151,9 @@ int main()
   uint sm = pio_claim_unused_sm(pio, true);
   pio_matrix_program_init(pio, sm, offset, OUT_PIN);
 
-  gpio_init(button_0);
-  gpio_set_dir(button_0, GPIO_IN);
-  gpio_pull_up(button_0);
-
-  gpio_init(button_1);
-  gpio_set_dir(button_1, GPIO_IN);
-  gpio_pull_up(button_1);
-
   teclado_init();
 
-  gpio_set_irq_enabled_with_callback(button_0, GPIO_IRQ_EDGE_FALL, 1, &gpio_irq_handler);
+  // gpio_set_irq_enabled_with_callback(button_0, GPIO_IRQ_EDGE_FALL, 1, &gpio_irq_handler);
 
   while (true)
   {
@@ -187,7 +176,10 @@ int main()
     {
       desenho_pio(leds, valor_led, pio, sm, 0.0, 0.3, 0.0); 
     }
-
+    else if (tecla == TECLA_HASH)
+    {
+      desenho_pio(leds, valor_led, pio, sm, 0.2, 0.2, 0.2);
+    }
 
     sleep_ms(500);
     printf("\nfrequeência de clock %ld\r\n", clock_get_hz(clk_sys));
