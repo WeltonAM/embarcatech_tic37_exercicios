@@ -179,6 +179,15 @@ int main()
     {
       desenho_pio(leds, valor_led, pio, sm, 0.0, 0.0, 1.0);
     }
+    else if (tecla == TECLA_C)
+    {
+      desenho_pio(leds, valor_led, pio, sm, 0.5, 0.0, 0.0);
+    }
+    else if (tecla == TECLA_D)
+    {
+      desenho_pio(leds, valor_led, pio, sm, 0.0, 0.3, 0.0); 
+    }
+
 
     sleep_ms(500);
     printf("\nfrequeência de clock %ld\r\n", clock_get_hz(clk_sys));
