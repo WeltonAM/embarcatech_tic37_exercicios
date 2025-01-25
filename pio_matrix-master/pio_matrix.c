@@ -11,6 +11,13 @@
 
 #include "animacao_exe.h"
 
+#define NUM_PIXELS 25
+
+#define OUT_PIN 7
+
+#define BUZZER_PIN 17
+#define BUZZER_FREQ_HZ 1000
+
 #define ROW1 28
 #define ROW2 27
 #define ROW3 26
@@ -97,9 +104,22 @@ char ler_tecla()
   return 0;
 }
 
-#define NUM_PIXELS 25
+void start_buzzer(uint32_t duration_ms) {
+  uint32_t period = 1000000 / BUZZER_FREQ_HZ;
+  uint32_t half_period = period / 2;
+  uint32_t end_time = time_us_32() + (duration_ms * 1000);
 
-#define OUT_PIN 7
+  gpio_set_dir(BUZZER_PIN, GPIO_OUT);
+
+  while (time_us_32() < end_time) {
+    gpio_put(BUZZER_PIN, 1);
+    sleep_us(half_period);
+    gpio_put(BUZZER_PIN, 0);
+    sleep_us(half_period);
+  }
+
+  gpio_put(BUZZER_PIN, 0);
+}
 
 double leds[25] = {1.0, 1.0, 1.0, 1.0, 1.0,
                    1.0, 1.0, 1.0, 1.0, 1.0,
@@ -164,6 +184,8 @@ int main()
   pio_matrix_program_init(pio, sm, offset, OUT_PIN);
 
   teclado_init();
+  gpio_init(BUZZER_PIN);
+  gpio_set_dir(BUZZER_PIN, GPIO_OUT);
 
   // gpio_set_irq_enabled_with_callback(button_0, GPIO_IRQ_EDGE_FALL, 1, &gpio_irq_handler);
 
@@ -200,6 +222,7 @@ int main()
     {
       for (int i = 0; i < 4; i++)
       {
+        start_buzzer(500);
         animacao_exe(leds, valor_led, pio, sm);
       }
     }
