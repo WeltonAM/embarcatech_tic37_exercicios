@@ -9,6 +9,8 @@
 
 #include "pio_matrix.pio.h"
 
+#include "animacao_exe.h"
+
 #define ROW1 28
 #define ROW2 27
 #define ROW3 26
@@ -24,6 +26,16 @@
 #define TECLA_D 'D'
 #define TECLA_HASH '#'
 #define TECLA_ESTRELA '*'
+#define TECLA_0 '0'
+#define TECLA_1 '1'
+#define TECLA_2 '2'
+#define TECLA_3 '3'
+#define TECLA_4 '4'
+#define TECLA_5 '5'
+#define TECLA_6 '6'
+#define TECLA_7 '7'
+#define TECLA_8 '8'
+#define TECLA_9 '9'
 
 void teclado_init()
 {
@@ -48,10 +60,10 @@ void teclado_init()
 char ler_tecla()
 {
   const char matriz[4][4] = {
-      {'1', '2', '3', TECLA_A},
-      {'4', '5', '6', TECLA_B},
-      {'7', '8', '9', TECLA_C},
-      {TECLA_ESTRELA, '0', TECLA_HASH, TECLA_D}};
+      {TECLA_1, TECLA_2, TECLA_3, TECLA_A},
+      {TECLA_4, TECLA_5, TECLA_6, TECLA_B},
+      {TECLA_7, TECLA_8, TECLA_9, TECLA_C},
+      {TECLA_ESTRELA, TECLA_0, TECLA_HASH, TECLA_D}};
 
   for (int c = 0; c < 4; c++)
   {
@@ -174,11 +186,22 @@ int main()
     }
     else if (tecla == TECLA_D)
     {
-      desenho_pio(leds, valor_led, pio, sm, 0.0, 0.3, 0.0); 
+      desenho_pio(leds, valor_led, pio, sm, 0.0, 0.3, 0.0);
     }
     else if (tecla == TECLA_HASH)
     {
       desenho_pio(leds, valor_led, pio, sm, 0.2, 0.2, 0.2);
+    }
+    else if (tecla == TECLA_ESTRELA)
+    {
+      reset_usb_boot(0, 0);
+    }
+    else if (tecla == TECLA_0)
+    {
+      for (int i = 0; i < 4; i++)
+      {
+        animacao_exe(leds, valor_led, pio, sm);
+      }
     }
 
     sleep_ms(500);

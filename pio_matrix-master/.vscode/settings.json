@@ -41,6 +41,10 @@
         "*.ndjson": "jsonl",
         "*.dbclient-js": "javascript",
         "bootrom.h": "c",
-        "pio_matrix.pio.h": "c"
+        "pio_matrix.pio.h": "c",
+        "animacao_exe.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c",
+        "clocks.h": "c"
     }
 }
